@@ -66,6 +66,13 @@ gittyleaks -user kootenpv -repo yagmail
 # Giving the -d option deletes the repo afterwards immediately
 ```
 
+#### Local Repository
+
+```bash
+# If only repo option is given, it target local directory
+gittyleaks -repo yagmail
+```
+
 ### Printing results
 
 ``` bash

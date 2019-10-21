@@ -75,7 +75,11 @@ class GittyLeak():
             except sh.ErrorReturnCode_128:
                 pass
 
-        os.chdir(self.repo)
+    def chdir_repo(self):
+        if self.repo is not None:
+            os.chdir(self.repo)
+        else:
+            print('repository directory not found.')
 
     def get_revision_list(self):
         self.revision_list = git('rev-list', '--all').strip().split('\n')
@@ -179,6 +183,7 @@ class GittyLeak():
         if (self.user and self.repo) or self.link:
             self.clone()
 
+        self.chdir_repo()
         self.get_revision_list()
 
         self.matched_items = self.get_matches_dict()
